@@ -207,7 +207,7 @@ public class BrailleAsciiTables {
   public static String toBraille(char letter) {
     // Make sure we've loaded the ASCII-to-Braille tree.
     if (null == a2bTree) {
-      a2bTree = new BitTree(6);
+      a2bTree = new BitTree(8);
       InputStream a2bStream = new ByteArrayInputStream(a2b.getBytes());
       a2bTree.load(a2bStream);
       try {

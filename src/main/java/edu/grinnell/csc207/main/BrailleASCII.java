@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 import edu.grinnell.csc207.util.BitTree;
 import edu.grinnell.csc207.util.BrailleAsciiTables;
@@ -21,27 +22,40 @@ public class BrailleASCII {
    */
   public static void main(String[] args) {
     PrintWriter pen = new PrintWriter(System.out, true);
-    // letter -> bits/ASCII -> braille
-    // STUB
-    BitTree bt = new BitTree(6);
-    //https://stackoverflow.com/questions/782178/how-do-i-convert-a-string-to-an-inputstream-in-java
-    InputStream inputStream = new ByteArrayInputStream(BrailleAsciiTables.getA2BTable().getBytes(StandardCharsets.UTF_8));
-    bt.load(inputStream);
-    bt.dump(pen);
-    pen.println(bt.get("00100000"));
 
-    pen.println(BrailleAsciiTables.toBraille('h')); 
-    pen.println(BrailleAsciiTables.toAscii("110010"));
-    pen.println(BrailleAsciiTables.toUnicode("110010"));
+    switch (args[0]) {
+      case "ascii": // braille to ascii, 6 character substrings
+        if(args[1].length() % 6 != 0) { 
+          pen.print("Invalid length of bit string");
+        } else {
+          for(int i = 0; i < args[1].length(); i+=6) { 
+            pen.print(BrailleAsciiTables.toAscii(args[1].substring(i, i+6)));
+          }
+        }
+        break;
+      case "unicode": // string to unicode braille
+        for(char c : args[1].toCharArray()) { 
+          String braille = BrailleAsciiTables.toBraille(c);
+          String unicode = BrailleAsciiTables.toUnicode(braille);
+          pen.print((char) Integer.parseUnsignedInt(unicode, 16));
+        }
+        break;
+      case "braille": // ascii to braille
+        for(char c : args[1].toCharArray()) { 
+          try {
+            pen.print(BrailleAsciiTables.toBraille(c));
+          } catch (Exception e) {
+            pen.print("\nTrouble translating because No corresponding value");
+            pen.print(e);
+            break;
+          } // try catch
+        }
+        break;
+      default:
+        break;
+    }
 
-
-
-
-
-
-
-
-    
+    pen.println();
     pen.close();
   } // main(String[]
 
