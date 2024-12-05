@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * @author Your Name Here
+ * @author Harrison Zhu
  * @author Samuel A. Rebelsky
  */
 public class BrailleAsciiTables {

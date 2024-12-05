@@ -3,6 +3,7 @@ package edu.grinnell.csc207.util;
 /**
  * Represents a single node in the bit tree.
  *
+ * @author Harrison Zhu
  * @param <T> The type of data the tree contains.
  */
 public interface BitTreeNode<T> {

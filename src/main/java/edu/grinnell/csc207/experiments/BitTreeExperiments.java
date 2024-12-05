@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 /**
  * Some experiments with Bit Trees.
  *
- * @author Your Name Here
+ * @author Harrison Zhu
  * @author Samuel A. Rebelsky
  */
 public class BitTreeExperiments {

@@ -4,6 +4,7 @@ package edu.grinnell.csc207.util;
  * This is a interior node of a BitTree. It does not contain any values, but contains references to
  * other nodes.
  *
+ * @author Harrison Zhu
  * @param <T> The type of data the bit tree contains.
  */
 public class BitTreeInteriorNode<T> implements BitTreeNode<T> {

@@ -3,6 +3,7 @@ package edu.grinnell.csc207.util;
 /**
  * The leaf of a bit tree. Contains value and paths. Does not have references to other nodes.
  *
+ * @author Harrison Zhu
  * @param <T> The type of data the bit tree contains.
  */
 public class BitTreeLeaf<T> implements BitTreeNode<T> {

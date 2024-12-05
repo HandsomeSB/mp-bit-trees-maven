@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Some simple tests of our BitTree class.
  *
+ * @author Harrison Zhu
  * @author Samuel A. Rebelsky
  */
 public class TestBitTree {
