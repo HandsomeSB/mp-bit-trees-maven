@@ -3,9 +3,9 @@ package edu.grinnell.csc207.main;
 import edu.grinnell.csc207.util.BrailleAsciiTables;
 import java.io.PrintWriter;
 
-/** 
+/**
  * Main UI for braille to ascii converter.
- * 
+ *
  * @author Harrison Zhu
  */
 public class BrailleASCII {
