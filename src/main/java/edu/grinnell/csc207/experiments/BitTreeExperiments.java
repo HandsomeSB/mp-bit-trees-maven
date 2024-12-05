@@ -1,10 +1,9 @@
 package edu.grinnell.csc207.experiments;
 
 import edu.grinnell.csc207.util.BitTree;
-
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 
 /**
@@ -18,10 +17,8 @@ public class BitTreeExperiments {
   // | Constants |
   // +-----------+
 
-  /**
-   * Some of the conversion from braille to ASCII.
-   */
-  static final String b2a =
+  /** Some of the conversion from braille to ASCII. */
+  static final String B2A =
       """
       100000,A
       110000,B
@@ -37,12 +34,9 @@ public class BitTreeExperiments {
   /**
    * Attempt to get the value corresponding to a bit string.
    *
-   * @param pen
-   *   Used for logging.
-   * @param bt
-   *   The tree.
-   * @param bits
-   *   The key.
+   * @param pen Used for logging.
+   * @param bt The tree.
+   * @param bits The key.
    */
   static void get(PrintWriter pen, BitTree bt, String bits) {
     pen.printf("get(\"%s\")", bits);
@@ -58,14 +52,10 @@ public class BitTreeExperiments {
   /**
    * Attempt to set a bits/value pair in a tree.
    *
-   * @param pen
-   *   Used for logging.
-   * @param bt
-   *   The tree.
-   * @param bits
-   *   The key.
-   * @param value
-   *   The value.
+   * @param pen Used for logging.
+   * @param bt The tree.
+   * @param bits The key.
+   * @param value The value.
    */
   static void set(PrintWriter pen, BitTree bt, String bits, String value) {
     pen.printf("set(\"%s\", \"%s\") ... ", bits, value);
@@ -81,8 +71,7 @@ public class BitTreeExperiments {
   /**
    * Print a separator.
    *
-   * @param pen
-   *   Where to print the separator.
+   * @param pen Where to print the separator.
    */
   static void separator(PrintWriter pen) {
     pen.println("-".repeat(72));
@@ -96,8 +85,7 @@ public class BitTreeExperiments {
   /**
    * Create a tree, look up a few things, and dump it.
    *
-   * @param pen
-   *   Where to print the info.
+   * @param pen Where to print the info.
    */
   static void experiment01(PrintWriter pen) {
     pen.println("Experiment 01");
@@ -116,11 +104,11 @@ public class BitTreeExperiments {
     set(pen, bt, "0011", "Too short");
     set(pen, bt, "001100", "Too long");
 
-    get(pen, bt, "00111");      // Invalid key
-    get(pen, bt, "11111");      // Invalid key
-    get(pen, bt, "11a11");      // Invalid character
-    get(pen, bt, "1111");       // Too short
-    get(pen, bt, "110100");     // Too long
+    get(pen, bt, "00111"); // Invalid key
+    get(pen, bt, "11111"); // Invalid key
+    get(pen, bt, "11a11"); // Invalid character
+    get(pen, bt, "1111"); // Too short
+    get(pen, bt, "110100"); // Too long
 
     set(pen, bt, "01111", "Five-teen");
     get(pen, bt, "01111");
@@ -134,14 +122,13 @@ public class BitTreeExperiments {
   /**
    * Load a tree, look up a few things, and dump it.
    *
-   * @param pen
-   *   Where to print the info.
+   * @param pen Where to print the info.
    */
   static void experiment02(PrintWriter pen) {
     pen.println("Experiment 02");
     pen.println("-------------");
     BitTree b2aTree = new BitTree(6);
-    InputStream b2aStream = new ByteArrayInputStream(b2a.getBytes());
+    InputStream b2aStream = new ByteArrayInputStream(B2A.getBytes());
     b2aTree.load(b2aStream);
     try {
       b2aStream.close();
@@ -166,16 +153,14 @@ public class BitTreeExperiments {
   /**
    * Run our experiments.
    *
-   * @param args
-   *   Command-line arguments (ignored).
+   * @param args Command-line arguments (ignored).
    */
   public static void main(String[] args) {
     PrintWriter pen = new PrintWriter(System.out, true);
 
     experiment01(pen);
     experiment02(pen);
-    
+
     pen.close();
   } // main(String[])
-
 } // class BitTreeExperiments

@@ -1,37 +1,76 @@
 package edu.grinnell.csc207.util;
 
-public class BitTreeInteriorNode<T> implements BitTreeNode<T>{
-    BitTreeNode<T> left;
-    BitTreeNode<T> right;
+/**
+ * This is a interior node of a BitTree. It does not contain any values, but contains references to
+ * other nodes.
+ *
+ * @param <T> The type of data the bit tree contains.
+ */
+public class BitTreeInteriorNode<T> implements BitTreeNode<T> {
+  /** left node. */
+  BitTreeNode<T> left;
 
-    public BitTreeNode<T> getLeft() {
-        return left;
-    }
+  /** right node. */
+  BitTreeNode<T> right;
 
-    public BitTreeNode<T> getRight() {
-        return right;
-    }
+  /**
+   * Get the left node.
+   *
+   * @return left node
+   */
+  public BitTreeNode<T> getLeft() {
+    return left;
+  } // getLeft
 
-    public void setLeft(BitTreeNode<T> node) {
-        this.left = node;
-    }
+  /**
+   * Gets the right node.
+   *
+   * @return right node
+   */
+  public BitTreeNode<T> getRight() {
+    return right;
+  } // getRight
 
-    public void setRight(BitTreeNode<T> node) {
-        this.right = node;
-    }
+  /**
+   * Set the left node.
+   *
+   * @param node new node to set
+   */
+  public void setLeft(BitTreeNode<T> node) {
+    this.left = node;
+  } // setLeft
 
-    public T getValue() { 
-        return null;
-    }
+  /**
+   * Set the right node.
+   *
+   * @param node new node to set
+   */
+  public void setRight(BitTreeNode<T> node) {
+    this.right = node;
+  } // setRight
 
-    public String toString() { 
-        String str = "";
-        if(left != null) { 
-            str += this.left.toString();
-        }
-        if(right != null) { 
-            str += this.right.toString();
-        }
-        return str;
-    }
-}
+  /**
+   * Get value contained by the node.
+   *
+   * @return value
+   */
+  public T getValue() {
+    return null;
+  } // getValue
+
+  /**
+   * Returns a string representation of the node.
+   *
+   * @return String
+   */
+  public String toString() {
+    String str = "";
+    if (left != null) {
+      str += this.left.toString();
+    } // if
+    if (right != null) {
+      str += this.right.toString();
+    } // if
+    return str;
+  } // toString
+} // class BitTreeInteriorNode

@@ -1,35 +1,79 @@
 package edu.grinnell.csc207.util;
 
+/**
+ * The leaf of a bit tree. Contains value and paths. Does not have references to other nodes.
+ *
+ * @param <T> The type of data the bit tree contains.
+ */
 public class BitTreeLeaf<T> implements BitTreeNode<T> {
-    String path;
-    T value;
+  /** Path of leaf. */
+  String path;
 
-    public BitTreeLeaf(String path, T val) {
-        this.path = path;
-        this.value = val;
-    }
+  /** Value of leaf. */
+  T value;
 
-    public BitTreeNode<T> getLeft() {
-        return null;
-    }
+  /**
+   * Constructs a bit tree leaf.
+   *
+   * @param path bit path of the leaf
+   * @param val values it contains
+   */
+  public BitTreeLeaf(String path, T val) {
+    this.path = path;
+    this.value = val;
+  } // BitTreeLeaf(String, T)
 
-    public BitTreeNode<T> getRight() {
-        return null;
-    }
+  /**
+   * get the left node.
+   *
+   * @return left node
+   */
+  public BitTreeNode<T> getLeft() {
+    return null;
+  } // getLeft
 
-    public void setLeft(BitTreeNode<T> node){ 
-        return;
-    }
+  /**
+   * Gets the right node.
+   *
+   * @return right node
+   */
+  public BitTreeNode<T> getRight() {
+    return null;
+  } // getRight
 
-    public void setRight(BitTreeNode<T> node) {
-        return;
-    }
+  /**
+   * Set the left node.
+   *
+   * @param node new node to set
+   */
+  public void setLeft(BitTreeNode<T> node) {
+    return;
+  } // setLeft
 
-    public T getValue() { 
-        return value;
-    }
+  /**
+   * Set the right node.
+   *
+   * @param node new node to set
+   */
+  public void setRight(BitTreeNode<T> node) {
+    return;
+  } // setRight
 
-    public String toString() { 
-        return path + ", " + value + "\n";
-    }
-}
+  /**
+   * Get value contained by the node.
+   *
+   * @return value
+   */
+  public T getValue() {
+    return value;
+  } // getValue
+
+  /**
+   * Returns a string representation of the node.
+   *
+   * @return String
+   */
+  public String toString() {
+    return path + ", " + value + "\n";
+  } // toString
+} // class BitTreeLeaf
